@@ -23,6 +23,7 @@ public interface UserDAO extends JpaRepository<User, Integer>{
 	public Optional<User> findByUsername(String username);
 	// eventually venture into Optional.ofNullable
 
+	public Optional<User> findById(int id);
 	@Transactional // This means I want this particualr method to be part of a transaction
 	// @Modifying  // I would use this if I intend for some method to manipulate and modify data in a DB
 	@Query(value= "FROM User WHERE email LIKE %:substr") // Note that I'm calling the Java properties and object name -> this is JPQL 
